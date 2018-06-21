@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Http\Controllers;
 
@@ -23,7 +23,7 @@ use \App\Item;
                 'hits' => 20,
             ]);
 
-            // 扱い易いように Item としてインスタンスを作成する（保存はしない）
+            // Creating "Item" instance to make it easy to handle.（not saving）
             foreach ($rws_response->getData()['Items'] as $rws_item) {
                 $item = new Item();
                 $item->code = $rws_item['Item']['itemCode'];
@@ -38,5 +38,15 @@ use \App\Item;
             'keyword' => $keyword,
             'items' => $items,
         ]);
+    }
+     public function show($id)
+    {
+      $item = Item::find($id);
+      $want_users = $item->want_users;
+
+      return view('items.show', [
+          'item' => $item,
+          'want_users' => $want_users,
+      ]);
     }
   }
