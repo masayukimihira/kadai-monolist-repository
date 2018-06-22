@@ -9,3 +9,4 @@
         {!! Form::submit('Want it', ['class' => 'btn btn-primary']) !!}
     {!! Form::close() !!}
 @endif
+
