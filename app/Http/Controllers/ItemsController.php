@@ -52,6 +52,6 @@ use \App\Item;
           'have_users' => $have_users,
           
         ]);  
-          //have機能
+          
     }
   }
